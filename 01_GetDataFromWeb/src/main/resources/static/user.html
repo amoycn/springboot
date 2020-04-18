@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <form action="/submit1" method="get">
+            姓名：<input type="text" id="name" name="name" autofocus value="dalin"><br> 
+            身高： <input type="number" id="height" name="height" min="1" step="1" value="178"><br> 
+            生日： <input type="date" id="birthday" name="birthday" value="1983-10-29"><br> 
+            薪水： <input type="number" id="salary" name="salary" value="12888.98"><br> 
+            有效：<input type="radio" id="validInd" name="validInd" value="true" checked> 
+            无效：<input type="radio" id="validInd" name="validInd" value="false"><br>
+   	  每个参数单独获取       
+            <button type="submit">提交</button>
+            <button type="reset">重置</button>
+        </form>
+    </div><hr>
+    
+     <div style="text-align: center;">
+        <form action="/submit2" method="get">
+            姓名：<input type="text" id="name" name="name" autofocus value="dalin"><br> 
+            身高： <input type="number" id="height" name="height" min="1" step="1" value="178"><br> 
+            生日： <input type="date" id="birthday" name="birthday" value="1983-10-29"><br> 
+            薪水： <input type="number" id="salary" name="salary" value="12888.98"><br> 
+            有效：<input type="radio" id="validInd" name="validInd" value="true" checked> 
+            无效：<input type="radio" id="validInd" name="validInd" value="false"><br>
+            对象获取
+            <button type="submit">提交</button>
+            <button type="reset">重置</button>
+        </form>
+    </div><hr>
+    
+     <div style="text-align: center;">
+        <form action="/submit3/go" method="get">
+            姓名：<input type="text" id="name" name="name" autofocus value="dalin"><br> 
+            身高： <input type="number" id="height" name="height" min="1" step="1" value="178"><br> 
+            生日： <input type="date" id="birthday" name="birthday" value="1983-10-29"><br> 
+            薪水： <input type="number" id="salary" name="salary" value="12888.98"><br> 
+            有效：<input type="radio" id="validInd" name="validInd" value="true" checked> 
+            无效：<input type="radio" id="validInd" name="validInd" value="false"><br>
+            路径+参数获取
+            <button type="submit">提交</button>
+            <button type="reset">重置</button>
+        </form>
+    </div>
+
+
+</body>
+
+</html>
