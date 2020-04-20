@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dalin.mapper.UserMapper">
+	<resultMap id="baseMap" type="com.dalin.model.User" >
+		<id column="id" property="id" jdbcType="INTEGER"/>
+		<result column="name" property="name" jdbcType="VARCHAR"/>
+		<result column="sex" property="sex" jdbcType="VARCHAR"/>
+		<result column="height" property="height" jdbcType="INTEGER"/>
+		<result column="birthday" property="birthday" jdbcType="DATE"/>
+		<result column="salary" property="salary" jdbcType="DOUBLE"/>
+		<result column="validInd" property="validInd" jdbcType="BOOLEAN"/>
+	</resultMap>
+<!-- 	private Integer id; //用户id
+	private String name; //姓名
+	private String sex; //性别
+	private Integer height; //身高
+	@JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date birthday; //生日
+	private Double salary; //薪水
+	private Boolean validInd; //是否有效 -->
+	<sql id="columeList">
+		id,name,sex,height,birthday,salary,validInd
+	</sql>
+
+	<select id="getById" parameterType="java.lang.Integer"  resultMap="baseMap">
+		select 
+		<include refid="columeList"/>
+		from user
+		where id = #{id}
+	</select>
+
+	<select id="getAll" resultMap="baseMap">
+		select 
+		<include refid="columeList"></include>
+		from user
+	</select>
+
+	<update id="updateSalary" parameterType="com.dalin.model.User">
+		update 
+			user
+		set
+			<if test="salary != null">salary = #{salary}</if>
+		where
+			id = #{id}	
+	</update>
+	
+	<insert id="add" parameterType="com.dalin.model.User">
+		insert into
+			user
+			(id,name,sex,height,birthday,salary,validInd)
+		values
+			(#{id},#{name},#{sex},#{height},#{birthday},#{salary},#{validInd})		
+	</insert>
+	
+	<delete id="deleteById" parameterType="java.lang.Integer">
+		delete from
+			user
+		where
+			id = #{id}	
+	</delete>
+
+
+</mapper>
