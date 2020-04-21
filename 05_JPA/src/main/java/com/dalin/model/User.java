@@ -12,7 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "jpa_user")
+@Table(name = "big_user")
 public class User {
 
 	@Id
